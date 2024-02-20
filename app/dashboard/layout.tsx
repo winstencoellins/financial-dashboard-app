@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Sidebar from "@/components/sidebar";
+import Header from "@/components/header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,9 +17,15 @@ export default function Layout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} flex`}>
-        <Sidebar />
-        {children}
+      <body className={`${inter.className}`}>
+        <div className="flex flex-row">
+          <Sidebar />
+
+          <div className="mx-5 w-full">
+            <Header />
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   );
